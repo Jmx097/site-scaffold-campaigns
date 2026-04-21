@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VersaFile Canada — Enterprise Content Management for Canadian Energy & Utilities</title>
+  <meta name="description" content="Canada's M-Files implementation partner for electric power, utilities, and midstream energy. Document control, regulatory records, and engineering information management.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VersaFile Canada — ECM for Canadian Energy & Utilities">
+  <meta property="og:description" content="M-Files implementation partner for NERC, OEB, CER-regulated operators. Engineering drawing control, records retention, capital project document management.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --primary: #1b4f8a;
+      --primary-dark: #0d2d54;
+      --ink: #0a2540;
+      --text: #1a1a2e;
+      --muted: #4b5563;
+      --bg: #f4f6f9;
+      --card: #ffffff;
+      --border: #e0e4ea;
+      --accent-soft: #eef4ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 20px 0;
+    }
+
+    header .inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wordmark {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: white;
+      text-decoration: none;
+    }
+
+    .wordmark .accent {
+      background: white;
+      color: var(--primary);
+      padding: 3px 8px;
+      border-radius: 5px;
+      margin-right: 4px;
+      font-size: 13px;
+    }
+
+    header nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    header nav a:hover { color: white; }
+
+    .hero {
+      padding: 64px 0 48px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      text-decoration: none;
+      margin-left: 12px;
+    }
+
+    .btn-secondary:hover { background: var(--accent-soft); }
+
+    section {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .capability-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+    }
+
+    .capability-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .capability-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .quote-block {
+      background: var(--card);
+      border-left: 4px solid var(--primary);
+      padding: 24px 28px;
+      border-radius: 0 8px 8px 0;
+      margin: 28px 0;
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+
+    .form-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .form-block label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .form-block input,
+    .form-block textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .form-block input:focus,
+    .form-block textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .form-block textarea { min-height: 90px; resize: vertical; }
+
+    .form-status {
+      font-size: 14px;
+      color: var(--primary);
+      margin-top: 8px;
+      min-height: 20px;
+    }
+
+    footer {
+      background: #0a2540;
+      color: rgba(255,255,255,0.75);
+      padding: 48px 0 32px;
+      font-size: 14px;
+    }
+
+    footer strong { color: white; }
+
+    footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-legal {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 30px; }
+      .hero { padding: 40px 0 32px; }
+      section { padding: 40px 0; }
+      .capability-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      header nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container inner">
+      <a href="/" class="wordmark"><span class="accent">VF</span>VersaFile Canada</a>
+      <nav>
+        <a href="#what-we-do">Solutions</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="border-top:none;">
+    <div class="container">
+      <span class="eyebrow">Canada's M-Files Partner for Energy</span>
+      <h1>Enterprise content management for Canadian energy and utilities.</h1>
+      <p class="hero-sub">
+        Document control, regulatory records, and engineering information management — built on M-Files for operators who can't afford paperwork to be the bottleneck.
+      </p>
+      <div class="cta-row">
+        <a href="https://cal.com/jonathan-mclemore-t2zmlc/steppingstones?duration=15" class="btn-primary" data-cta="hero">Book a 15-minute intro →</a>
+        <a href="#what-we-do" class="btn-secondary">See what we do</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-we-do">
+    <div class="container">
+      <h2>What we do</h2>
+      <p>
+        VersaFile is Canada's M-Files implementation partner for the electric power, utilities, and midstream energy sectors. We configure, deploy, and support metadata-driven ECM in environments where NERC, OEB, CER, and provincial regulatory records requirements aren't optional.
+      </p>
+      <div class="capability-grid">
+        <div class="capability-card">
+          <h3>Engineering information management</h3>
+          <p>Drawing lifecycle, revision control, and asset-record linkage for transmission, distribution, and generation fleets.</p>
+        </div>
+        <div class="capability-card">
+          <h3>Regulatory records &amp; retention</h3>
+          <p>Automated filing workflows, retention schedules, and audit trails for NERC CIP, OEB, and CER obligations.</p>
+        </div>
+        <div class="capability-card">
+          <h3>Capital project document control</h3>
+          <p>EPC deliverables, handover documentation, and commissioning records across major infrastructure projects.</p>
+        </div>
+        <div class="capability-card">
+          <h3>Microsoft 365 &amp; SharePoint integration</h3>
+          <p>M-Files layered on the Microsoft stack utilities already standardize on — no rip-and-replace.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Why M-Files for energy</h2>
+      <p>
+        Folder hierarchies break the moment a document is needed in two business contexts at once. An engineering drawing is simultaneously an asset record, a regulatory artifact, a maintenance reference, and a safety document.
+      </p>
+      <p>
+        Metadata-driven ECM resolves each document once and serves it to every context that needs it. No duplicate filing, no conflicting versions, no "which copy is the real one." Regulators, field technicians, and executives see the same source of truth through different views.
+      </p>
+      <div class="quote-block">
+        Canadian electric utilities, crown corporations, independent power producers, district energy operators, and midstream energy companies — the organizations we work with share one thing: the audit never takes a year off.
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Next step</h2>
+      <p>
+        If M-Files is on your radar, or if your team is feeling audit, records, or engineering-document pressure, a 15-minute intro is the lowest-friction way to see if we're worth a longer conversation.
+      </p>
+      <div class="cta-row">
+        <a href="https://cal.com/jonathan-mclemore-t2zmlc/steppingstones?duration=15" class="btn-primary" data-cta="next-step">Book a 15-minute intro →</a>
+      </div>
+
+      <div class="form-block" style="margin-top:40px;">
+        <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;">Prefer email?</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:20px;">Send a short note and we'll reply within one business day.</p>
+        <form id="contact-form" novalidate>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" required>
+
+          <label for="message">What's the context?</label>
+          <textarea id="message" name="message" placeholder="Audit coming up, capital project handover, M-Files evaluation, etc."></textarea>
+
+          <button type="submit" class="btn-primary">Send note</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>VersaFile Inc.</strong><br>
+          [MAILING ADDRESS]<br>
+          [PHONE] · <a href="mailto:[EMAIL]">[EMAIL]</a>
+        </div>
+        <div>
+          <strong>Follow</strong><br>
+          <a href="[LINKEDIN URL]" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-legal">
+        © 2026 VersaFile Inc. All rights reserved. M-Files is a registered trademark of M-Files Corporation.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // UTM capture + form submission
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const utm = {
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_term: params.get('utm_term') || '',
+        utm_content: params.get('utm_content') || ''
+      };
+      // Persist UTMs across the session
+      try {
+        for (const k in utm) if (utm[k]) sessionStorage.setItem(k, utm[k]);
+        for (const k in utm) if (!utm[k] && sessionStorage.getItem(k)) utm[k] = sessionStorage.getItem(k);
+      } catch (e) {}
+
+      // Append UTMs to the Cal.com CTAs so booking metadata carries through
+      document.querySelectorAll('a[href*="cal.com"]').forEach(a => {
+        const url = new URL(a.href);
+        for (const k in utm) if (utm[k]) url.searchParams.set(k, utm[k]);
+        url.searchParams.set('source_domain', 'versafilecanada.com');
+        a.href = url.toString();
+      });
+
+      // Form handling
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Sending…';
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        Object.assign(data, utm, {
+          source_domain: 'versafilecanada.com',
+          motion: 'versafile',
+          referrer: document.referrer,
+          submitted_at: new Date().toISOString()
+        });
+
+        const endpoint = window.N8N_FORM_WEBHOOK || 'https://n8n.openclaw.app/webhook/form-submit';
+
+        try {
+          const r = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (!r.ok) throw new Error('Network');
+          status.textContent = 'Thanks — we\'ll reply within one business day.';
+          form.reset();
+        } catch (err) {
+          status.textContent = 'Something went wrong. Email us directly at [EMAIL].';
+          status.style.color = '#c0392b';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
