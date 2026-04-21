@@ -1,6 +1,8 @@
-# Positioning — The Four Motions
+# Positioning — The Five Motions
 
-The narrative foundation for all four domains. When a section file or an HTML page asks "what are we, and why?", the answer lives here. Per-page briefs reference this; they don't reinvent it.
+The narrative foundation for all five domains. When a section file or an HTML page asks "what are we, and why?", the answer lives here. Per-page briefs reference this; they don't reinvent it.
+
+**Motion-language guardrail (critical):** M-Files, energy, and regulator language (OEB, CER, NERC CIP, AER) is reserved for the three VersaFile-aligned domains (`versafilecanada.com`, `energycontentcontrol.com`, `plinkoenergy.com`). The two Plinko MSP domains (`tryplinko.com`, `dfyplinko.com`) do NOT mention M-Files, energy, or utility regulators. Different buyer, different vocabulary.
 
 ---
 
@@ -18,7 +20,7 @@ The two businesses intersect at **Plinko Energy** — a partnership motion where
 
 ## The four motions (one per domain)
 
-### Motion 1 — VersaFile Direct
+### Motion 1 — VersaFile Direct (brand-led)
 
 **Domain:** `versafilecanada.com`
 
@@ -129,7 +131,35 @@ The page must make those entity phrases prominent (in headings, in FAQ Q&A, in s
 
 ---
 
-## How the four motions relate
+### Motion 5 — VersaFile Direct (value-prop-led)
+
+**Domain:** `energycontentcontrol.com`
+
+**Why this exists alongside Motion 1:** Same ICP as versafilecanada (1,500–10,000 employee Canadian utilities, IPPs, midstream, crown corps), different entry angle. Motion 1 leads with brand ("we are VersaFile, Canada's M-Files partner"). Motion 5 leads with capability ("energy sector document control, done right — here's what that means"). The VersaFile + M-Files reveal happens in the solution section, not the hero. This lets the page reach procurement/evaluation personas who filter out vendor-branded outreach and capability-searchers finding the domain via queries like "energy document control," "utility records management," or "regulated industry ECM."
+
+**Buyer:** Same roles and company profile as Motion 1 — Records/IM managers, compliance leads, IT directors, engineering document control owners, VPs of operations. The personas who differ in response preference:
+- Procurement and vendor-management personas who mandate capability-before-brand evaluation
+- Technical evaluators who got burned by "consultant brand" pitches and now screen for capability depth
+- Warm-but-skeptical prospects who saw versafilecanada and bounced — the alternative angle gets a second chance at engagement
+
+**Core promise:** *Purpose-built document control for Canadian energy. Engineering drawings, regulator-ready records, audit-proof workflows. Built on M-Files, implemented by VersaFile — Canada's energy-sector ECM team.*
+
+**Differentiation:**
+- Value-prop-forward — the capability is the hero, brand is the proof
+- Same implementation depth as Motion 1 (configure, deploy, train, stay)
+- Reveals the M-Files + VersaFile story once the capability has landed — protects against "oh, another vendor pitch" bounce
+
+**Competitive frame:** Same as Motion 1 (not big-four generalists, not reseller-shallow, not SharePoint duct-tape), but framed as "here's the capability; the company behind it is VersaFile" rather than "VersaFile delivers this capability."
+
+**Risk reversal:** 15-min call, no pressure. Same as Motion 1.
+
+**Tone pole:** Still formal (enterprise audience), educational/informational rather than assertive. More "here is how this works in regulated energy environments" and less "we have done this." The proof carries the brand authority once the capability sells itself.
+
+**Sending pairing:** Operates in parallel with Motion 1 on the same VF ICP. Signal-split hypothesis test — does brand-led or value-prop-led generate higher reply rate on the same segment? Winner takes more volume after 30 days; both survive if each hits threshold.
+
+---
+
+## How the five motions relate
 
 ```
                              Plinko Solutions (the brand)
@@ -147,9 +177,12 @@ The page must make those entity phrases prominent (in headings, in FAQ Q&A, in s
                                                     (Canadian M-Files
                                                      implementation)
                                                            │
-                                                     versafilecanada
-                                                   (direct anchor tier —
-                                                    enterprise utilities)
+                                         ┌─────────────────┴─────────────────┐
+                                         │                                   │
+                                 versafilecanada                  energycontentcontrol
+                                 (direct anchor tier,              (direct anchor tier,
+                                  brand-led — enterprise            value-prop-led — same
+                                  utilities)                        ICP, different angle)
 ```
 
 - **Plinko** is the commercial frontdoor and the sourcing engine.
@@ -167,6 +200,10 @@ The page must make those entity phrases prominent (in headings, in FAQ Q&A, in s
 **On tryplinko.com:** Plinko brand only. No VersaFile mention — this is the MSP motion, VersaFile has no relevance.
 
 **On dfyplinko.com:** Plinko brand only. Named tools (OpenClaw, Claude Cowork, Apollo, HeyReach, Smartlead, n8n) appear prominently because (a) trust-through-transparency and (b) AI-search ranking depends on named-entity density. No VersaFile mention.
+
+**On energycontentcontrol.com:** Capability-led. VersaFile named once in the solution section as the implementation team; M-Files named as the underlying platform. No Plinko mention. Tone is enterprise-serious, same as versafilecanada, but positioned as "here is the capability" rather than "here is the firm." Same regulator vocabulary allowed (OEB, CER, NERC CIP, AER).
+
+**Motion-language reminder:** M-Files, energy sector, utilities, regulator names → permitted only on `versafilecanada.com`, `energycontentcontrol.com`, and `plinkoenergy.com`. Never on `tryplinko.com` or `dfyplinko.com`.
 
 ---
 
