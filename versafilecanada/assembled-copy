@@ -1,0 +1,42 @@
+# Assembled Copy — versafilecanada.com
+
+**Status:** STUB. Sections not yet locked.
+
+When every section file in `versafilecanada/` reaches **Locked** status, the locked blocks get concatenated here in sitemap order. That composed document is the source the HTML implementation reads from.
+
+---
+
+## Section lock status
+
+| Section | File | Status |
+|---|---|---|
+| Hero | `hero.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| Pain | `pain.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| Solution | `solution.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| Process | `process.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| FAQ | `faq.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| CTA | `cta.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+
+---
+
+## Source for implementation until lock
+
+Until all sections lock, the **V1 copy** in `../../landing-page-copy.md` (Section 1: versafilecanada.com) is the authoritative source for the currently-deployed `index.html`.
+
+When sections lock, that HTML gets updated section-by-section per the handoff process in `../COPY-WORKFLOW.md`.
+
+---
+
+## Coherence pass checklist (before assembly)
+
+Once all sections lock, run this pass before concatenating:
+
+- [ ] Hero and CTA share the same risk-reversal language convention.
+- [ ] Regulator names (NERC CIP, OEB, CER, AER) are not over-referenced — ≤2 per section.
+- [ ] No claim appears on the page that isn't in `shared/proof-library.md`.
+- [ ] No marketing superlatives (scan against `shared/voice-and-guardrails.md` banned list).
+- [ ] Four-capability grid (Configure, Deploy, Train, Stay) is visible and consistent across sections that reference it.
+- [ ] "Canadian" / "Canada" / regulator references reinforce the Canadian context throughout.
+- [ ] Contractions appear outside the hero; hero remains slightly more formal.
+- [ ] Section transitions read as narrative, not as six standalone blocks stitched together.
+- [ ] Every claim has a proof-library source reachable in one hop.
