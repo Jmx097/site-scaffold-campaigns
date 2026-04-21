@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tryplinko — Outbound Engine for MSPs</title>
+  <meta name="description" content="A complete outbound engine for 10-50 person MSPs that can't justify a full BDR team. Book 2x more qualified conversations without hiring.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="tryplinko — Outbound engine for MSPs">
+  <meta property="og:description" content="Apollo, Hunter, HeyReach, Smartlead, custom automation. No black box. For 10-50 person MSPs stuck between 'too small for a sales hire' and 'growing too fast to do it yourself.'">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --primary: #ea580c;           /* Plinko orange */
+      --primary-dark: #c2410c;
+      --ink: #1c1917;               /* warm near-black */
+      --text: #292524;
+      --muted: #57534e;
+      --bg: #fffbf6;                /* warm off-white */
+      --card: #ffffff;
+      --border: #f1e4d3;
+      --accent-soft: #fff3e6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      background: var(--ink);
+      color: white;
+      padding: 20px 0;
+    }
+
+    header .inner { display: flex; justify-content: space-between; align-items: center; }
+
+    .wordmark {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.03em;
+      color: white; text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .wordmark .dot { color: var(--primary); }
+
+    header nav a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    header nav a:hover { color: white; }
+
+    .hero { padding: 72px 0 48px; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--primary);
+      background: var(--accent-soft); padding: 6px 12px;
+      border-radius: 20px; margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 42px; font-weight: 800; color: var(--ink);
+      letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: 20px; color: var(--muted);
+      max-width: 600px; margin-bottom: 28px;
+    }
+
+    .hero-punch {
+      font-size: 17px; color: var(--ink); font-weight: 600;
+      margin-bottom: 32px; padding-left: 16px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .btn-primary {
+      display: inline-block; background: var(--primary); color: white;
+      font-size: 16px; font-weight: 600; padding: 14px 28px;
+      border-radius: 8px; text-decoration: none; transition: background 0.15s;
+      border: none; cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-secondary {
+      display: inline-block; background: transparent; color: var(--primary);
+      font-size: 15px; font-weight: 600; padding: 12px 24px;
+      border: 2px solid var(--primary); border-radius: 8px;
+      text-decoration: none; margin-left: 12px;
+    }
+
+    .btn-secondary:hover { background: var(--accent-soft); }
+
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+
+    section h2 {
+      font-size: 28px; font-weight: 700; color: var(--ink);
+      letter-spacing: -0.01em; margin-bottom: 20px;
+    }
+
+    section p { font-size: 16px; color: var(--text); margin-bottom: 16px; }
+
+    .feature-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .feature-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-list li:last-child { border-bottom: none; }
+
+    .feature-list strong {
+      display: block;
+      color: var(--ink);
+      font-size: 16.5px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .feature-list span {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .stack-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 20px;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .stack-block .tool {
+      display: inline-block;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 5px;
+      margin: 2px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    .cost-box {
+      background: var(--accent-soft);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin: 24px 0;
+    }
+
+    .cost-box .cost-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 8px;
+    }
+
+    .cost-box p {
+      font-size: 16px; color: var(--ink); margin: 0;
+    }
+
+    .cta-row {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 8px; margin-top: 32px;
+    }
+
+    .form-block {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px; margin-top: 24px;
+    }
+
+    .form-block label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--ink); margin-bottom: 6px;
+    }
+
+    .form-block input, .form-block textarea {
+      width: 100%; padding: 10px 12px; font-size: 15px;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-family: inherit; margin-bottom: 16px; color: var(--text);
+    }
+
+    .form-block input:focus, .form-block textarea:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .form-block textarea { min-height: 90px; resize: vertical; }
+
+    .form-status {
+      font-size: 14px; color: var(--primary);
+      margin-top: 8px; min-height: 20px;
+    }
+
+    footer {
+      background: var(--ink); color: rgba(255,255,255,0.75);
+      padding: 48px 0 32px; font-size: 14px;
+    }
+
+    footer strong { color: white; }
+    footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+    footer a:hover { color: var(--primary); }
+
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+
+    .footer-legal {
+      margin-top: 32px; padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 12px; color: rgba(255,255,255,0.5);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 32px; }
+      .hero { padding: 48px 0 36px; }
+      section { padding: 40px 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      header nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container inner">
+      <a href="/" class="wordmark">tryplinko<span class="dot">.</span></a>
+      <nav>
+        <a href="#what">What we run</a>
+        <a href="#stack">The stack</a>
+        <a href="#contact">Talk</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="border-top:none;">
+    <div class="container">
+      <span class="eyebrow">For 10-50 person MSPs</span>
+      <h1>A complete outbound engine for MSPs that can't justify a full BDR team.</h1>
+      <p class="hero-sub">
+        Book 2x more qualified conversations without hiring, training, or managing another human.
+      </p>
+      <div class="cta-row">
+        <a href="https://cal.com/jonathan-mclemore-t2zmlc/steppingstones?duration=15" class="btn-primary" data-cta="hero">See if it fits — 15 min →</a>
+        <a href="#what" class="btn-secondary">What we run</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="container">
+      <h2>Who this is for</h2>
+      <p>
+        10–50 person MSPs. Usually founder-led or recently past that phase. Selling managed services, co-managed IT, MSP automation, or cybersecurity.
+      </p>
+      <p>
+        Stuck in the gap between <strong>"too small for a sales hire"</strong> and <strong>"growing too fast to do outbound yourself between support tickets."</strong>
+      </p>
+      <p class="hero-punch">
+        If you've tried buying lists from Upwork, running cold sequences from your primary domain, or "I'll just do LinkedIn for 30 minutes a day" — you know why that gap exists.
+      </p>
+    </div>
+  </section>
+
+  <section id="what">
+    <div class="container">
+      <h2>What we actually run</h2>
+      <ul class="feature-list">
+        <li>
+          <strong>ICP and account targeting</strong>
+          <span>Your real profile — headcount band, geography, tech stack, buying triggers. Not a 50,000-contact CSV you bought once and never cleaned.</span>
+        </li>
+        <li>
+          <strong>Multi-channel outreach</strong>
+          <span>Email and LinkedIn, orchestrated together so prospects get one coherent touch pattern instead of two disconnected ones.</span>
+        </li>
+        <li>
+          <strong>Signal-based triggers</strong>
+          <span>We send when something real is happening at the target — a new ops hire, headcount growth, a PSA migration, a funding event. Not Tuesday at 9 a.m. because "that's when people check email."</span>
+        </li>
+        <li>
+          <strong>Reply triage</strong>
+          <span>You get qualified, ready-to-respond conversations on your calendar. We handle everything upstream. You close. We source.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <h2>The stack — no black box</h2>
+      <div class="stack-block">
+        <span class="tool">Apollo</span> for firmographics.
+        <span class="tool">Hunter</span> for verified emails.
+        <span class="tool">HeyReach</span> for LinkedIn.
+        <span class="tool">Smartlead</span> on segmented warmed domains.
+        A custom <span class="tool">n8n</span> automation layer we built in-house that orchestrates the weekly routine.
+        <br><br>
+        You see the full pipeline at all times — source lists, sequences, reply rates, inbox placement. No mystery, no wrapped-up black box you can't audit.
+      </div>
+    </div>
+  </section>
+
+  <section id="cost">
+    <div class="container">
+      <h2>What it costs</h2>
+      <div class="cost-box">
+        <div class="cost-label">Structure</div>
+        <p>Monthly retainer + pass-through for your own sending infrastructure. Total monthly burn is comparable to a half-time BDR — without the hiring, managing, or ramp time.</p>
+      </div>
+      <p style="color:var(--muted);">
+        Specific pricing on the intro call — it depends on geography, volume, and whether you want us running LinkedIn alongside email.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Low-commitment first step</h2>
+      <p>
+        If you're curious, 15 minutes is the call. No pitch deck, no mandatory demo. We talk about your current outbound (or lack of it), what's breaking, and whether what we run would move the numbers you care about.
+      </p>
+      <div class="cta-row">
+        <a href="https://cal.com/jonathan-mclemore-t2zmlc/steppingstones?duration=15" class="btn-primary" data-cta="next-step">Book 15 min →</a>
+      </div>
+
+      <div class="form-block" style="margin-top:40px;">
+        <h3 style="font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;">Rather just email?</h3>
+        <p style="font-size:14px;color:var(--muted);margin-bottom:20px;">Drop a note. We'll reply same day.</p>
+        <form id="contact-form" novalidate>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="company">MSP</label>
+          <input type="text" id="company" name="company" required>
+
+          <label for="message">What's your current outbound situation?</label>
+          <textarea id="message" name="message" placeholder="Doing nothing, tried cold email and it flopped, have an SDR that's underperforming, etc."></textarea>
+
+          <button type="submit" class="btn-primary">Send note</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>Plinko Solutions</strong><br>
+          [MAILING ADDRESS]<br>
+          [PHONE] · <a href="mailto:[EMAIL]">[EMAIL]</a>
+        </div>
+        <div>
+          <strong>Follow</strong><br>
+          <a href="[LINKEDIN URL]" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-legal">
+        © 2026 Plinko Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const utm = {
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_term: params.get('utm_term') || '',
+        utm_content: params.get('utm_content') || ''
+      };
+      try {
+        for (const k in utm) if (utm[k]) sessionStorage.setItem(k, utm[k]);
+        for (const k in utm) if (!utm[k] && sessionStorage.getItem(k)) utm[k] = sessionStorage.getItem(k);
+      } catch (e) {}
+
+      document.querySelectorAll('a[href*="cal.com"]').forEach(a => {
+        const url = new URL(a.href);
+        for (const k in utm) if (utm[k]) url.searchParams.set(k, utm[k]);
+        url.searchParams.set('source_domain', 'tryplinko.com');
+        a.href = url.toString();
+      });
+
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Sending…';
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        Object.assign(data, utm, {
+          source_domain: 'tryplinko.com',
+          motion: 'plinko-msp-try',
+          referrer: document.referrer,
+          submitted_at: new Date().toISOString()
+        });
+
+        const endpoint = window.N8N_FORM_WEBHOOK || 'https://n8n.openclaw.app/webhook/form-submit';
+
+        try {
+          const r = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (!r.ok) throw new Error('Network');
+          status.textContent = 'Thanks — talk soon.';
+          form.reset();
+        } catch (err) {
+          status.textContent = 'Something went wrong. Email us at [EMAIL].';
+          status.style.color = '#c0392b';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
