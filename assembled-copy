@@ -1,0 +1,49 @@
+# Assembled Copy — plinkoenergy.com
+
+**Status:** STUB. Sections not yet locked. Page-level blocker: VersaFile leadership sign-off required.
+
+---
+
+## Section lock status
+
+| Section | File | Status |
+|---|---|---|
+| Hero | `hero.md` | Draft + Critique complete. Not locked. Blocked on VersaFile approval. |
+| Pain | `pain.md` | Draft + Critique complete. Not locked. Blocked on VersaFile approval. |
+| Solution | `solution.md` | Draft + Critique complete. Not locked. Blocked on VersaFile approval. |
+| Process | `process.md` | Draft + Critique complete. Not locked. Blocked on VersaFile approval. |
+| FAQ | `faq.md` | Draft + Critique complete. Not locked. Blocked on VersaFile approval. |
+| CTA | `cta.md` | Draft + Critique complete. Not locked. Blocked on VersaFile approval. |
+
+---
+
+## Page-level blockers
+
+**VersaFile leadership sign-off** required before any section can lock. Specifically:
+- Brand hierarchy (Plinko leads sourcing, VersaFile leads delivery)
+- Exact co-branding wording ("sourced by Plinko, delivered by VersaFile" or similar)
+- Logo placement and visual co-branding approach
+- Contact info in footer (Plinko only, VersaFile only, or both)
+- Partnership agreement or MSA that covers attribution and lead ownership
+
+Until that sign-off arrives, draft blocks can be written and critiqued — but nothing ships.
+
+---
+
+## Source for implementation until lock
+
+Until all sections lock, the **V1 copy** in `../../landing-page-copy.md` (Section 2: plinkoenergy.com) is the authoritative source for the currently-deployed `index.html`.
+
+---
+
+## Coherence pass checklist (before assembly)
+
+- [ ] Both brands (Plinko, VersaFile) appear in hero.
+- [ ] Division of labor (sources / delivers) is consistent across sections.
+- [ ] Regulator mentions (OEB, CER, NERC CIP) — ≤2 per section.
+- [ ] No Plinko MSP stack mentions (Apollo, HeyReach by name at length) — wrong buyer.
+- [ ] No AI automation framing — wrong buyer.
+- [ ] Footer represents both brands per approved co-branding rules.
+- [ ] Every claim cited in `shared/proof-library.md`.
+- [ ] VersaFile partnership credited exactly once in How This Works, once more in footer — not throughout.
+- [ ] Tone stays mid-market (peer-to-peer Canadian, not enterprise, not MSP-casual).
