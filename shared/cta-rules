@@ -1,0 +1,291 @@
+# CTA Rules
+
+The conversion surface is narrow. Every CTA on every page follows these rules so attribution works, buyers face one choice at a time, and no page drifts into "book a call or subscribe or download or chat" paralysis.
+
+---
+
+## The one-CTA principle
+
+Each page has a **single primary CTA**: book a 15-minute intro call via Cal.com. That's it.
+
+A contact form exists as a fallback for buyers who won't book on a cold link, but the form is structurally subordinate — below the fold, visually quieter, and the form's success state routes to the same next step (schedule the call).
+
+No newsletter signup. No gated PDF. No "let's chat on WhatsApp." No three-option "which applies to you" menus. Every extra CTA halves conversion on the primary.
+
+---
+
+## CTA hierarchy across all four pages
+
+| Level | Element | Where it appears | Visual weight |
+|---|---|---|---|
+| Primary | Cal.com 15-min intro booking button | Hero, mid-page, final CTA section (3 instances) | Full button, brand-primary background |
+| Secondary | Contact form | One section near bottom of page | Form block, brand-muted background |
+| Tertiary | LinkedIn link (Jon) | Footer only | Small text link |
+
+Do not add a fourth CTA type without explicit reason tied to a specific buyer behavior we've observed.
+
+---
+
+## Cal.com link conventions
+
+### The canonical booking URLs
+
+Each motion routes to its own Cal.com event type so calendar attribution stays clean and the post-book confirmation can be tailored per motion.
+
+| Page | Cal.com path | Event type name |
+|---|---|---|
+| versafilecanada.com | `https://cal.com/jonmc/versafile-intro` | "VersaFile — 15-min intro" |
+| plinkoenergy.com | `https://cal.com/jonmc/plinko-energy-intro` | "Plinko Energy — 15-min intro" |
+| tryplinko.com | `https://cal.com/jonmc/plinko-msp-intro` | "Plinko MSP — 15-min intro" |
+| dfyplinko.com | `https://cal.com/jonmc/plinko-msp-dfy-intro` | "Plinko DFY — 15-min intro" |
+
+### UTM and attribution enrichment
+
+Every Cal.com link gets query parameters appended at click-time by the page's JavaScript. The parameters are:
+
+- `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content` — passed through from the landing URL
+- `source_domain` — set by the page (e.g., `versafilecanada.com`)
+- `motion` — set by the page (e.g., `versafile`, `plinko-energy`, `plinko-msp-try`, `plinko-msp-dfy`)
+
+These flow to Cal.com as booking metadata, then forward via webhook to n8n for CRM routing.
+
+### Button label rules
+
+The button text varies per page voice but follows a shared pattern: a specific, named next step, not a generic verb.
+
+| Page | Primary button label |
+|---|---|
+| versafilecanada.com | "Book a 15-minute intro call" |
+| plinkoenergy.com | "Book a 15-minute intro call" |
+| tryplinko.com | "Grab a 15-minute intro call" |
+| dfyplinko.com | "Book your 15-minute fit call" |
+
+Avoid: "Get in touch", "Contact us", "Let's talk", "Learn more", "Sign up", "Get started."
+These are vague verbs. Named, time-bounded commitments ("15-minute intro") convert better because the buyer knows exactly what they're committing to.
+
+---
+
+## CTA placement on each page
+
+### Rule of three
+
+Every page has exactly three Cal.com CTA instances, at predictable positions:
+
+1. **Hero block** — immediately under the subheadline. The scroll-skippers who already know they want a call need this at the top.
+2. **Mid-page** — after the proof or process section, once the buyer has seen evidence. This is for the "convinced at third of the way down" buyer.
+3. **Final CTA section** — the dedicated closing block, above the footer. For the bottom-reader who scrolled the whole page.
+
+Never more than three. Each extra Cal.com button below three adds clutter, not conversions.
+
+### The form placement
+
+The contact form goes directly above the final CTA section. Why: the final CTA is the last Cal.com touch; the form is the "I'm not ready to book but I want to signal interest" fallback. Buyers who resisted the first two Cal.com buttons can still convert via form before they hit the third.
+
+---
+
+## CTA copy per page
+
+### versafilecanada.com
+
+**Hero CTA (above button):** "If your team is preparing for a regulatory audit, a document migration, or an M-Files decision — a 15-minute intro is the lowest-friction way to see if we're worth a longer conversation."
+
+**Mid-page CTA (before button):** "15 minutes, no deck. Tell us what you're running, we'll tell you what we'd build."
+
+**Final CTA (section headline):** "The next step"
+Body: "A short call with a Canadian M-Files specialist. We'll tell you whether M-Files is right for your environment — and if it isn't, we'll say so."
+
+### plinkoenergy.com
+
+**Hero CTA:** "If your utility is on SharePoint and knows it's not the right tool for regulator audits, a 15-minute call is the lowest-friction way to find out if M-Files makes sense."
+
+**Mid-page CTA:** "One call, two specialists. We source the conversation, VersaFile delivers the implementation."
+
+**Final CTA headline:** "Short call, honest read"
+Body: "Worst case: you walk away with a second opinion on the document management question. Best case: we build you a path forward with a Canadian partner who knows your regulator."
+
+### tryplinko.com
+
+**Hero CTA:** "Book a 15-min call. No pitch deck. No mandatory demo. Just a conversation about whether we're the right fit."
+
+**Mid-page CTA:** "If this sounds like the mess you're in, let's talk for 15 minutes and see."
+
+**Final CTA headline:** "Grab 15 minutes"
+Body: "If we're not the right fit, we'll tell you in the first five. If we are, you'll know what the engine looks like, what it costs, and when it starts."
+
+### dfyplinko.com
+
+**Hero CTA:** "Book your 15-minute fit call. We'll tell you if the engine is right for your MSP — if it isn't, we'll say so."
+
+**Mid-page CTA:** "90 days from this call to your first qualified pipeline and your first automations live. Book the fit call to start the clock."
+
+**Final CTA headline:** "Book your fit call"
+Body: "15 minutes. We ask about your ops, your pipeline, and your quarter. If it's a fit, we scope the 90-day build on the call. If not, we'll tell you what else to look at."
+
+---
+
+## Contact form rules
+
+### What the form collects
+
+Every form has exactly four fields:
+- **Name** (required)
+- **Email** (required, validated)
+- **Company** (required — filters curiosity-bait submissions)
+- **Message** (required — min 20 chars to filter empty submits)
+
+No "How did you hear about us" (UTMs capture that). No checkbox list of services (forces a decision the buyer isn't qualified to make). No phone number field — phone gets collected on the Cal.com booking.
+
+### Motion tag routing
+
+Every form submission is POSTed to the n8n `form-submit` webhook with a `motion` field that determines CRM routing:
+
+| Page | `motion` value | Destination |
+|---|---|---|
+| versafilecanada.com | `versafile` | Dynamics 365 (VersaFile) |
+| plinkoenergy.com | `plinko-energy` | Dynamics 365 + Airtable (dual) |
+| tryplinko.com | `plinko-msp-try` | Airtable (Plinko) |
+| dfyplinko.com | `plinko-msp-dfy` | Airtable (Plinko) |
+
+### Success state
+
+After form submit succeeds: show "Thanks — we'll reply within one business day. Faster path: grab a 15-min call directly." with the Cal.com link live. Don't just show a success checkmark. A confirmation without a next step is a dead end.
+
+### Failure state
+
+If the webhook fails: show "Couldn't reach the form server. Email us directly at [EMAIL] or grab a call at [CAL.COM LINK]." Do not silent-fail. Do not require a retry click — give the buyer the direct path immediately.
+
+---
+
+## Risk reversal language
+
+Every Cal.com CTA is accompanied by a risk-reversal phrase. The goal: make the click feel zero-cost.
+
+Approved risk-reversal phrases per page:
+
+**versafilecanada.com:** "No pressure. No mandatory demo. If we're not the right fit, we'll tell you."
+
+**plinkoenergy.com:** "Worst case, one honest opinion on the M-Files question."
+
+**tryplinko.com:** "No pitch deck. If it's a waste of your time, we'll tell you in the first five minutes."
+
+**dfyplinko.com:** "No pitch deck. If this isn't right for your MSP, we'll tell you what we'd recommend instead."
+
+Risk-reversal sits next to the button, not as a separate paragraph. It's a single sentence that reduces the psychological cost of clicking.
+
+---
+
+## UTM parameter conventions
+
+We use a consistent UTM taxonomy across all outreach so n8n can attribute back to the right campaign.
+
+### Standard UTM values
+
+| Parameter | Values we use |
+|---|---|
+| `utm_source` | `smartlead`, `heyreach`, `linkedin`, `referral`, `direct` |
+| `utm_medium` | `cold_email`, `inmail`, `connection_msg`, `reply`, `organic` |
+| `utm_campaign` | Campaign name from Smartlead/HeyReach (e.g., `vf-t1-records`, `pl-t2-msp-ops`) |
+| `utm_term` | Trigger signal if any (e.g., `hiring-records-manager`, `compliance-deadline-q3`) |
+| `utm_content` | Which email variant in the sequence (e.g., `step-1`, `step-3-followup`) |
+
+### Capture and persistence
+
+On page load, the JavaScript:
+1. Reads all `utm_*` params from `window.location.search`
+2. Persists them to `sessionStorage` with a `cw_utm_` prefix (prevents collision)
+3. Appends them to every Cal.com link on click
+4. Includes them in the form submit POST body
+
+If a buyer lands without UTMs (direct traffic or typed URL), `utm_source=direct` is set as default.
+
+---
+
+## Tracking and attribution contract
+
+For every buyer interaction we get exactly two possible attribution events:
+
+1. **Form submit** — POSTed to n8n webhook with full UTM + motion metadata
+2. **Cal.com booking** — Cal.com webhook fires to n8n with the URL params we injected
+
+Both events arrive at n8n within seconds. n8n deduplicates by email and writes to the correct CRM based on `motion`. If the same buyer submits the form AND books a call, n8n merges to a single lead record.
+
+### What we do NOT track
+
+- Scroll depth
+- Time on page
+- Click heatmaps
+- Session replay
+
+These add third-party scripts, slow the page, and trigger cookie-consent banners. The conversion surface is the CTA click. If you can't measure it from CTA clicks, form submits, and bookings, it's not measurable enough to act on.
+
+---
+
+## CTA anti-patterns (catch these in Critique)
+
+### Stacking CTAs on top of each other
+
+> **Bad:** Hero block with "Book a call" button AND "Get the PDF" button AND "Email us" link.
+> **Why:** Decision paralysis. The buyer chooses none.
+> **Fix:** One primary CTA per block. Other paths appear lower on the page.
+
+### Vague CTA verbs
+
+> **Bad:** "Get in touch" / "Learn more" / "Contact us"
+> **Why:** Doesn't tell the buyer what happens after the click.
+> **Fix:** "Book a 15-minute intro call" — named, time-bounded, specific.
+
+### Pressure language
+
+> **Bad:** "Limited slots — book now before they're gone!" / "Offer ends Friday!"
+> **Why:** Cheapens the brand. Energy buyers and MSP founders both see right through it.
+> **Fix:** Honest risk-reversal: "15 minutes. If it's not a fit, we'll tell you."
+
+### Form overload
+
+> **Bad:** Form with 11 fields including dropdown for budget, company size, timeline, industry, and current tech stack.
+> **Why:** Conversion drops 40%+ per extra field beyond 4-5.
+> **Fix:** Name, Email, Company, Message. UTMs capture the rest.
+
+### CTA without risk reversal
+
+> **Bad:** Standalone "Book a call" button with no surrounding text.
+> **Why:** Button asks for commitment. Buyer needs a reason to believe the commitment is low-cost.
+> **Fix:** One-line risk-reversal sentence next to the button.
+
+### Inconsistent Cal.com paths
+
+> **Bad:** Some CTAs link to `cal.com/jonmc/intro`, others to `cal.com/jonmc/versafile-intro`.
+> **Why:** Attribution breaks. We can't tell which motion the booking came from.
+> **Fix:** Every CTA on a given page uses the same canonical path.
+
+---
+
+## Post-launch iteration
+
+After 4-6 weeks of live traffic, review CTA performance per page:
+
+- **Click-through rate on Cal.com button** (target: >3% of page visitors)
+- **Booking rate** (calendar shows up after click — target: >30% of clicks)
+- **Form-to-booking rate** (of buyers who submit the form, how many also book — target: >40%)
+- **UTM distribution** (which sources drive bookings vs. form-only)
+
+If a page's CTR is below 1%, the problem is almost certainly copy upstream (hero, proof), not the button itself. Don't "redesign the button." Fix the copy that precedes it.
+
+If a page's booking rate after click is low, the Cal.com event type page may be the problem — check that the event description, duration, and availability match what the buyer expects from the landing page.
+
+---
+
+## Summary — the contract for every page
+
+Every page that goes live must satisfy:
+
+1. One primary CTA (Cal.com booking) with three placements
+2. One secondary fallback (contact form) with four fields
+3. One tertiary (LinkedIn footer link)
+4. Cal.com path is page-specific and consistent across the three placements
+5. UTM capture + Cal.com enrichment + form POST metadata all wired
+6. Motion tag matches the page
+7. Risk-reversal sentence adjacent to every Cal.com button
+8. Graceful form failure with direct email + Cal.com fallback
+
+If any of these fail, the page isn't ready to ship.
