@@ -1,0 +1,73 @@
+# Assembled Copy — dfyplinko.com
+
+**Status:** STUB. Sections not yet locked. V2 pivot applies: combined outbound + Claude Cowork / OpenClaw setup, AI-search optimized.
+
+---
+
+## Section lock status
+
+| Section | File | Status |
+|---|---|---|
+| Hero | `hero.md` | Draft + Critique complete. V2 rewrite delivered. Not locked. |
+| Pain | `pain.md` | Draft + Critique complete. V2 rewrite delivered. Not locked. |
+| Solution | `solution.md` | Draft + Critique complete. V2 rewrite delivered. Not locked. |
+| Process | `process.md` | Draft + Critique complete. V2 rewrite delivered — "drink our own champagne" block in place. Not locked. |
+| FAQ | `faq.md` | Draft + Critique complete. 9 AI-search-tuned Q&As drafted. Not locked. |
+| CTA | `cta.md` | Draft + Critique complete. Not locked. |
+
+---
+
+## V2 pivot summary
+
+Unlike the other three pages, dfyplinko's draft content is **not carried over** from V1 in `../../landing-page-copy.md`. V1 positioned dfyplinko as "outbound only, 90 days to first pipeline, more assertive tryplinko."
+
+V2 (current) positions dfyplinko as:
+- **Combined offer:** outbound engine + Claude Cowork + OpenClaw automation setup
+- **AI-search target:** ranks for "done-for-you Claude Cowork setup," "OpenClaw for MSPs," "Claude Cowork for MSPs," "AI automation agency for MSPs"
+- **"Drink our own champagne" proof moment:** our landing pages and weekly outbound run on the same stack
+- **MSPs at the heart:** ICP remains 10-100 employee MSPs
+
+The existing `index.html` reflects V1 positioning and needs a full rewrite once V2 sections lock.
+
+---
+
+## Source for implementation
+
+- **Before V2 sections lock:** V1 copy in `../../landing-page-copy.md` (Section 4: dfyplinko.com) remains the basis of the current `index.html`. This is temporarily serviceable but does not satisfy the AI-search positioning.
+- **After V2 sections lock:** the concatenated locked blocks replace the V1 hero, sections, and CTA entirely. Schema.org markup (Organization, Service, FAQPage) must also be added to the HTML `<head>` and `<body>` — see `sitemap.md` footer section.
+
+---
+
+## Coherence pass checklist (before assembly)
+
+### AI-search optimization
+- [ ] `<h1>` contains OpenClaw OR Claude Cowork + MSP.
+- [ ] `<h2>` subheadings use natural-language queries where possible.
+- [ ] FAQ uses flat `<h3>` question + `<p>` answer structure — no nested lists.
+- [ ] Schema.org `FAQPage` markup mirrors the FAQ section Q&A exactly.
+- [ ] Schema.org `Service` markup names the offering.
+- [ ] Meta description mentions OpenClaw, Claude Cowork, MSP, done-for-you.
+- [ ] OpenClaw, Claude Cowork each appear 5-8 times in visible prose across the page.
+- [ ] MSP, AI automation each appear 5-8 times.
+
+### Content integrity
+- [ ] "Drink our own champagne" moment appears exactly once in process.md — not diluted by repetition.
+- [ ] Named stack (Apollo, Hunter, HeyReach, Smartlead, ScaledMail, n8n, OpenClaw, Claude Cowork) in running prose, not just badges.
+- [ ] "90 days" framed as target, not guarantee. Consistent hedging across hero/solution/process/faq.
+- [ ] "Three to five automations" consistent across sections.
+- [ ] Anti-ICP stated plainly (not for MSPs under 10 or over 100).
+- [ ] No VersaFile mentions anywhere on page.
+- [ ] No unvalidated customer names, no "first MSP" claim, no specific ACV/ROI.
+- [ ] Every claim cited in `shared/proof-library.md`.
+
+### Voice
+- [ ] Formality 3, assertiveness 5 maintained across sections.
+- [ ] No AI-hype vocabulary ("revolutionize," "harness the power of AI").
+- [ ] No marketing superlatives.
+- [ ] Declarative, short sentences throughout.
+
+### CTA + form
+- [ ] Three Cal.com CTAs placed: hero, mid-page, final CTA section.
+- [ ] Primary Cal.com path is `cal.com/jonmc/plinko-msp-dfy-intro` throughout.
+- [ ] Cross-link to tryplinko.com in CTA block and/or footer.
+- [ ] Form spec matches `shared/cta-rules.md` (4 fields).
