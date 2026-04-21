@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dfyplinko — Done-for-You Outbound for MSPs</title>
+  <meta name="description" content="Done-for-you outbound for 10-50 person MSPs. 90 days to your first qualified pipeline. Fixed fee. No long contract.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="dfyplinko — Done-for-you outbound for MSPs">
+  <meta property="og:description" content="90-day commitment to prove the motion works. Multi-domain email, LinkedIn, signal-triggered sends, weekly reporting, meetings on your calendar.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --primary: #c2410c;           /* deeper Plinko orange — assertive */
+      --primary-dark: #9a3412;
+      --ink: #0c0a09;               /* near-black with warmth */
+      --text: #1c1917;
+      --muted: #57534e;
+      --bg: #0c0a09;                /* dark mode-forward */
+      --surface: #1c1917;
+      --card: #292524;
+      --border: #44403c;
+      --accent-soft: rgba(234, 88, 12, 0.1);
+      --text-on-dark: #f5f5f4;
+      --muted-on-dark: #a8a29e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-on-dark);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      background: var(--bg);
+      color: white;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header .inner { display: flex; justify-content: space-between; align-items: center; }
+
+    .wordmark {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.03em;
+      color: white; text-decoration: none;
+    }
+
+    .wordmark .dot { color: var(--primary); }
+    .wordmark .prefix { color: var(--primary); }
+
+    header nav a {
+      color: var(--muted-on-dark);
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    header nav a:hover { color: white; }
+
+    .hero {
+      padding: 80px 0 56px;
+      background: radial-gradient(ellipse at top, rgba(234, 88, 12, 0.15) 0%, transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--primary);
+      background: var(--accent-soft); padding: 6px 12px;
+      border-radius: 20px; margin-bottom: 20px;
+      border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+
+    h1 {
+      font-size: 46px; font-weight: 800; color: white;
+      letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 20px;
+    }
+
+    h1 .highlight { color: var(--primary); }
+
+    .hero-sub {
+      font-size: 19px; color: var(--muted-on-dark);
+      max-width: 620px; margin-bottom: 28px;
+    }
+
+    .hero-body {
+      font-size: 17px; color: var(--text-on-dark);
+      max-width: 620px; margin-bottom: 32px; line-height: 1.6;
+    }
+
+    .hero-close {
+      font-size: 18px; font-weight: 700; color: white;
+      padding: 16px 20px; background: var(--surface);
+      border-left: 4px solid var(--primary); border-radius: 0 8px 8px 0;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-block; background: var(--primary); color: white;
+      font-size: 16px; font-weight: 600; padding: 14px 28px;
+      border-radius: 8px; text-decoration: none; transition: background 0.15s;
+      border: none; cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-secondary {
+      display: inline-block; background: transparent; color: white;
+      font-size: 15px; font-weight: 600; padding: 12px 24px;
+      border: 2px solid var(--border); border-radius: 8px;
+      text-decoration: none; margin-left: 12px;
+    }
+
+    .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+    section {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    section h2 {
+      font-size: 30px; font-weight: 700; color: white;
+      letter-spacing: -0.01em; margin-bottom: 24px;
+    }
+
+    section p { font-size: 16px; color: var(--text-on-dark); margin-bottom: 16px; }
+
+    .deliverable-list {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .deliverable-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 20px;
+    }
+
+    .deliverable-list li:last-child { border-bottom: none; }
+
+    .deliverable-list .num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: var(--primary); color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 14px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    .deliverable-list strong {
+      display: block;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .deliverable-list span {
+      color: var(--muted-on-dark);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .ask-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-top: 20px;
+    }
+
+    .ask-block h3 {
+      font-size: 15px; font-weight: 700;
+      color: var(--primary); margin-bottom: 14px;
+      letter-spacing: 0.03em; text-transform: uppercase;
+    }
+
+    .ask-block ul { list-style: none; }
+
+    .ask-block li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      font-size: 15.5px;
+      color: var(--text-on-dark);
+    }
+
+    .ask-block li:before {
+      content: "▸";
+      position: absolute;
+      left: 0; top: 8px;
+      color: var(--primary);
+    }
+
+    .cost-box {
+      background: var(--surface);
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      padding: 28px;
+      margin: 28px 0;
+    }
+
+    .cost-box .cost-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 10px;
+    }
+
+    .cost-box .big {
+      font-size: 20px; font-weight: 700;
+      color: white; margin-bottom: 12px;
+    }
+
+    .cost-box p {
+      font-size: 15px; color: var(--muted-on-dark); margin: 0;
+    }
+
+    .not-for-block {
+      background: rgba(220, 38, 38, 0.08);
+      border: 1px solid rgba(220, 38, 38, 0.3);
+      border-radius: 10px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+
+    .not-for-block h3 {
+      font-size: 15px; font-weight: 700;
+      color: #f87171; margin-bottom: 14px;
+      letter-spacing: 0.03em; text-transform: uppercase;
+    }
+
+    .not-for-block ul { list-style: none; }
+
+    .not-for-block li {
+      padding: 10px 0 10px 24px;
+      position: relative;
+      font-size: 15.5px;
+      color: var(--text-on-dark);
+    }
+
+    .not-for-block li:before {
+      content: "✕";
+      position: absolute;
+      left: 0; top: 10px;
+      color: #f87171;
+      font-weight: 700;
+    }
+
+    .cta-row {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 8px; margin-top: 32px;
+    }
+
+    .form-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px; margin-top: 24px;
+    }
+
+    .form-block label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: white; margin-bottom: 6px;
+    }
+
+    .form-block input, .form-block textarea {
+      width: 100%; padding: 10px 12px; font-size: 15px;
+      background: var(--bg); color: white;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-family: inherit; margin-bottom: 16px;
+    }
+
+    .form-block input:focus, .form-block textarea:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .form-block textarea { min-height: 90px; resize: vertical; }
+
+    .form-status {
+      font-size: 14px; color: var(--primary);
+      margin-top: 8px; min-height: 20px;
+    }
+
+    footer {
+      background: var(--bg); color: var(--muted-on-dark);
+      padding: 48px 0 32px; font-size: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong { color: white; }
+    footer a { color: var(--text-on-dark); text-decoration: none; }
+    footer a:hover { color: var(--primary); }
+
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+
+    .footer-legal {
+      margin-top: 32px; padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--muted-on-dark);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 34px; }
+      .hero { padding: 56px 0 40px; }
+      section { padding: 44px 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      header nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container inner">
+      <a href="/" class="wordmark"><span class="prefix">dfy</span>plinko<span class="dot">.</span></a>
+      <nav>
+        <a href="#deliverables">What you get</a>
+        <a href="#cost">Cost</a>
+        <a href="#contact">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="border-top:none;">
+    <div class="container">
+      <span class="eyebrow">Done-for-You · 90 days</span>
+      <h1>Done-for-you outbound for MSPs. <span class="highlight">90 days to your first qualified pipeline.</span></h1>
+      <p class="hero-body">
+        You're running a 10–50 person MSP. You already know outbound works. You also know you're not going to build it internally — you don't have the time, you don't have the SDR, and every tool you'd need to buy is another thing to manage.
+      </p>
+      <div class="hero-close">
+        We run it for you. Start to finish.
+      </div>
+      <div class="cta-row">
+        <a href="https://cal.com/jonathan-mclemore-t2zmlc/steppingstones?duration=15" class="btn-primary" data-cta="hero">Book a strategy call →</a>
+        <a href="#deliverables" class="btn-secondary">What you get</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="deliverables">
+    <div class="container">
+      <h2>What you get in 90 days</h2>
+      <ul class="deliverable-list">
+        <li>
+          <div class="num">1</div>
+          <div>
+            <strong>A targeting model built around your actual ICP</strong>
+            <span>Headcount, geography, tech stack, buying triggers — based on your current customer data, not a generic MSP template.</span>
+          </div>
+        </li>
+        <li>
+          <div class="num">2</div>
+          <div>
+            <strong>A full North American outbound engine</strong>
+            <span>Multi-domain, pre-warmed email infrastructure across US and Canadian senders. LinkedIn outreach through HeyReach on rotated profiles. Both channels orchestrated in a single weekly routine.</span>
+          </div>
+        </li>
+        <li>
+          <div class="num">3</div>
+          <div>
+            <strong>Signal-triggered sends</strong>
+            <span>We don't spray cold lists. We send when something real is happening at the target — new ops hire, headcount growth, tech-stack adoption, funding event. 3-5x the reply rate of cold lists per 2026 benchmarks.</span>
+          </div>
+        </li>
+        <li>
+          <div class="num">4</div>
+          <div>
+            <strong>Weekly reporting</strong>
+            <span>Reply rates by signal, meeting conversions, pipeline value, and what's broken. No monthly "here's a dashboard" — weekly numbers, actionable.</span>
+          </div>
+        </li>
+        <li>
+          <div class="num">5</div>
+          <div>
+            <strong>Qualified conversations, not raw leads</strong>
+            <span>We don't dump CSVs in Slack. We put meetings on your calendar with context: who they are, what triggered the outreach, what they responded to, what to expect.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="ask">
+    <div class="container">
+      <h2>What we need from you</h2>
+      <div class="ask-block">
+        <h3>The short list</h3>
+        <ul>
+          <li>Access to your ICP data — current customer list, past proposals, CRM export if you have one</li>
+          <li>One 30-minute weekly check-in</li>
+          <li>A real human to take the conversations we book. This only works if you show up.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="cost">
+    <div class="container">
+      <h2>What it costs</h2>
+      <div class="cost-box">
+        <div class="cost-label">Structure</div>
+        <div class="big">Fixed monthly fee for the engine + pass-through for your sending infrastructure.</div>
+        <p>Full breakdown comes on the intro call — it depends on geography, volume, and whether you're running LinkedIn in parallel.</p>
+      </div>
+      <p style="color:var(--muted-on-dark);">
+        <strong style="color:white;">No long contract.</strong> 90-day commitment to prove the motion works, then month-to-month after that.
+      </p>
+    </div>
+  </section>
+
+  <section id="not-for">
+    <div class="container">
+      <h2>Who this is not for</h2>
+      <p style="color:var(--muted-on-dark);">Real honest filter:</p>
+      <div class="not-for-block">
+        <h3>Skip this call if you are…</h3>
+        <ul>
+          <li>An MSP under 10 employees — you probably still have founder-led sales that outperforms paid outbound</li>
+          <li>An MSP over 100 employees — you need internal SDRs, and we'll tell you that on the call</li>
+          <li>Any MSP that can't block 30 min/week for check-ins or commit to replying to inbound meetings same-day</li>
+          <li>Anyone looking for "just give me leads" — we don't sell lead lists</li>
+        </ul>
+      </div>
+      <p style="color:var(--muted-on-dark);margin-top:20px;">
+        If any of those apply, skip the call. If none do, let's talk.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Next step</h2>
+      <p>
+        30 minutes, structured: your ICP, your current outbound (or lack of it), realistic numbers, and whether we're the right fit. If yes, we talk pricing and start date. If no, we both save time.
+      </p>
+      <div class="cta-row">
+        <a href="https://cal.com/jonathan-mclemore-t2zmlc/steppingstones?duration=15" class="btn-primary" data-cta="next-step">Book a strategy call →</a>
+      </div>
+
+      <div class="form-block" style="margin-top:40px;">
+        <h3 style="font-size:16px;font-weight:700;color:white;margin-bottom:4px;">Rather just email first?</h3>
+        <p style="font-size:14px;color:var(--muted-on-dark);margin-bottom:20px;">Drop a note. Same-day reply.</p>
+        <form id="contact-form" novalidate>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="company">MSP</label>
+          <input type="text" id="company" name="company" required>
+
+          <label for="headcount">Headcount</label>
+          <input type="text" id="headcount" name="headcount" placeholder="e.g., 25">
+
+          <label for="message">Where are you at with outbound right now?</label>
+          <textarea id="message" name="message" placeholder="Currently doing X, tried Y, looking for Z."></textarea>
+
+          <button type="submit" class="btn-primary">Send note</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>Plinko Solutions</strong><br>
+          [MAILING ADDRESS]<br>
+          [PHONE] · <a href="mailto:[EMAIL]">[EMAIL]</a>
+        </div>
+        <div>
+          <strong>Follow</strong><br>
+          <a href="[LINKEDIN URL]" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-legal">
+        © 2026 Plinko Solutions. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const utm = {
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+        utm_term: params.get('utm_term') || '',
+        utm_content: params.get('utm_content') || ''
+      };
+      try {
+        for (const k in utm) if (utm[k]) sessionStorage.setItem(k, utm[k]);
+        for (const k in utm) if (!utm[k] && sessionStorage.getItem(k)) utm[k] = sessionStorage.getItem(k);
+      } catch (e) {}
+
+      document.querySelectorAll('a[href*="cal.com"]').forEach(a => {
+        const url = new URL(a.href);
+        for (const k in utm) if (utm[k]) url.searchParams.set(k, utm[k]);
+        url.searchParams.set('source_domain', 'dfyplinko.com');
+        a.href = url.toString();
+      });
+
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if (!form) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Sending…';
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        Object.assign(data, utm, {
+          source_domain: 'dfyplinko.com',
+          motion: 'plinko-msp-dfy',
+          referrer: document.referrer,
+          submitted_at: new Date().toISOString()
+        });
+
+        const endpoint = window.N8N_FORM_WEBHOOK || 'https://n8n.openclaw.app/webhook/form-submit';
+
+        try {
+          const r = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (!r.ok) throw new Error('Network');
+          status.textContent = 'Thanks — talk soon.';
+          form.reset();
+        } catch (err) {
+          status.textContent = 'Something went wrong. Email us at [EMAIL].';
+          status.style.color = '#f87171';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
