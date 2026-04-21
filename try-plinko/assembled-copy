@@ -1,0 +1,37 @@
+# Assembled Copy — tryplinko.com
+
+**Status:** STUB. Sections not yet locked.
+
+---
+
+## Section lock status
+
+| Section | File | Status |
+|---|---|---|
+| Hero | `hero.md` | Draft + Critique complete. Rewrite pending (2x claim hedging decision). Not locked. |
+| Pain | `pain.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| Solution | `solution.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| Process | `process.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| FAQ | `faq.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+| CTA | `cta.md` | Draft + Critique complete. Rewrite pending. Not locked. |
+
+---
+
+## Source for implementation until lock
+
+Until all sections lock, the **V1 copy** in `../../landing-page-copy.md` (Section 3: tryplinko.com) is the authoritative source for the currently-deployed `index.html`.
+
+---
+
+## Coherence pass checklist (before assembly)
+
+- [ ] Peer-to-peer voice consistent across sections — no enterprise drift.
+- [ ] Named stack appears in solution.md only — not in every section.
+- [ ] "2x more qualified conversations" is hedged consistently ("in our data" / "per 2026 benchmarks") everywhere it appears.
+- [ ] "Signal-triggered" language reinforced across pain/solution/process.
+- [ ] Warmed domain / ScaledMail referenced once in solution or FAQ — not repeated.
+- [ ] Cross-link to dfyplinko appears in footer only (not in body copy).
+- [ ] No OpenClaw or Claude Cowork mentions (those are dfyplinko's entities).
+- [ ] Every claim cited in `shared/proof-library.md`.
+- [ ] Tone stays peer-founder; no consulting drift.
+- [ ] Anti-ICP section ("Not for MSPs under 10") is explicit somewhere on the page.
